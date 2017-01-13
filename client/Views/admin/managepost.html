@@ -1,0 +1,107 @@
+<template name="managepost">
+	<a class="btn btn-primary" href="/addpost">ADD NEW POST</a>
+	<div class="wrap-search-pagination row">
+		<div class="search col-md-6" align="center">
+			<div id="custom-search-input">
+				<div class="input-group">
+					<input type="text" id="text_search" class="form-control" placeholder="Search Post ..." />
+					<span class="input-group-btn">
+						<button class="btn btn-info btn-lg" type="button">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</span>
+				</div>
+				
+			</div>
+			<ul class="search-dropdown pagehide">
+				{{listSearch}}	
+			</ul>
+		</div>
+	<!-- Start Pagination -->
+		<div class="wrapp-pagination col-md-6" id="mypagination" style="">
+			<ul class="pagination pagination-pager pull-right">
+				<li><a id="first_admin" href="/post/page/1">First</a></li>
+				{{#each totalPage}}
+				<li><a href="#" id="number" class="page_number{{this}}">{{this}}</a></li>
+				{{/each}}
+				{{#if showLastPage}}
+				<li > <a id="spacetotal">...</a>  </li>
+				<li id="page_total"  class=" pagination-pager-page " >
+					<a href="#" id="number" >{{totalPages}}</a>
+				</li>
+				{{/if}}
+				<div class="pagination-pager-buttons">
+					{{#if showPrev}}
+					<button id="prev"> <i class="fa fa-angle-left" aria-hidden="true"></i> </button>
+					{{/if}}
+					{{#if showNext}}
+					<button id="next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </button>
+					{{/if}}
+				</div>
+			</ul>
+		</div>
+	</div>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var page = Session.get('items.list.page');
+				$('ul.pagination li a.page_number'+page).addClass('active');
+				if(Session.get('items.list.page') <= 1){
+					$('#first_admin').addClass('pagehide');
+				}
+
+			})
+		</script>
+		<!-- end pagination -->
+	<table width="70%" class="table tbl-post" border="0">
+		<thead>
+			<tr>
+				<th><h3>No</h3></th>
+				<th><h3>Title</h3></th>
+				<th><h3>Description</h3></th>
+				<th><h3>Image</h3></th>
+				<th><h3>Location</h3></th>
+				<th><h3>Code</h3></th>
+				<th><h3>Category</h3></th>
+				<th><h3>Tools</h3></th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each getPost}}
+			<tr>
+				<td align="center" width="5%"> {{No @index}}</td>
+				{{#with getPostByLanguage this}}
+				<td align="center" width="10%">{{title}}</td>
+				<td align="center" width="35%" style="height: 100px ;overflow: hidden;">{{{limitString description}}}</td>
+				{{/with}}
+				<td align="center" width="10%">
+					<div class="tbl-img" style="{{getStyleScroll images}}">
+					{{#each images}}
+					<img src="/uploads/{{getImg this}}" width="100" />
+					{{/each}}
+					</div>
+					
+					
+				</td>
+				<td align="center" width="10%">
+					{{location}}
+				</td>
+				<td align="center" width="10%">{{code}}</td>
+				{{#with getCategoryById category}}
+				<td align="center" width="10%">{{title}}</td>
+				{{/with}}
+				
+				<td align="center" width="10%">
+				<a href="/editpost/{{_id}}">
+					<i class="fa fa-pencil-square-o edit" id="edit_post" aria-hidden="true"></i>
+				</a>
+				 |
+				 <a href="#" id="remove">
+					<i class="fa fa-trash-o delete" id="delete_post" aria-hidden="true"></i>
+				</a>
+				</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+	
+</template>

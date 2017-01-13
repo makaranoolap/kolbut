@@ -1,0 +1,105 @@
+/*Start pagination here*/
+ul.pagination {
+    display: inline-block;
+}
+ul.pagination li {display: inline-block;vertical-align: middle;}
+
+ul.pagination li a {
+    border: 0px solid #fff;
+    height: 40px;
+    width: 40px;
+    vertical-align: middle;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    line-height: 40px;
+    border-radius: 0!important;
+}
+ul.pagination li a.active {
+    background-color: #c3322a;
+    color: white;
+
+}
+ul.pagination li a:hover:not(.active) {background-color: #fff;}
+
+
+.wrapp-pagination{
+	
+}
+.pagination-pager + .pagination-mode-toggle.with-pager {
+    border-right: 1px solid #ddd;
+    margin-right: 7px;
+    padding-right: 14px;
+}
+.pagination-pager-list, .pagination-pager-buttons {
+    display: inline-block;
+}
+.pagination-pager li {
+    color: #000;
+    display: inline-block;
+    text-align: center;
+}
+.pagination-pager-page {
+    cursor: pointer;
+    height: 22px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.pagination-pager-buttons {
+    border-left: 1px solid #ddd;
+    margin-left: 7px;
+    padding-left: 10px;
+}
+.pagination-pager button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    height: 22px;
+    line-height: 0;
+    position: relative;
+    top: -1px;
+    width: 22px;
+}
+.pagination-pager button.icon-angle-right {
+    padding-left: 7px;
+}
+.pagination-pager button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    height: 22px;
+    line-height: 0;
+    position: relative;
+    top: -1px;
+    width: 22px;
+}
+.pagination-mode-toggle {
+	cursor: pointer;
+	color: #dd2a1b;
+	/*font-family: Gill Sans,sans-serif;*/
+}
+
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+    background-color: #fff;
+    border-color: #fff;
+    color: #dd2a1b;
+}
+.pagination-pager button:hover{
+	color: #dd2a1b;
+}
+mark {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        color: #c3322a;
+        font-weight: bold;
+    }
+.pagehide{display: none;}
+.pagination-front ul{
+    width: 100%;
+    text-align: center;
+}
+.pagination-front ul li a{
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+/* End pagination here*/

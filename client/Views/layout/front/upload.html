@@ -1,0 +1,24 @@
+<template name="uploadfile">
+	<form role="form">
+		<div class="form-group">
+			<label>Upload Your file</label>
+			<input type="file" name="file" id="file">
+		</div>
+	</form>
+	<table width="50%">
+		<thead>
+			<tr>
+				<th>Tilte</th>
+				<th>Photo</th>
+			</tr>
+		</thead>
+		<tbody>
+		{{#each getFile}}
+		<tr>
+			<td>{{copies.images.name}}</td>
+			<td><img src="/uploads/{{copies.images.key}}" width="100" height="100"></td>
+		</tr>
+		{{/each}}
+		</tbody>
+	</table>
+</template>

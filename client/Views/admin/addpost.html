@@ -1,0 +1,148 @@
+<template name="addpost">
+	<form>
+	<div class="block-en">
+		<div class="lang-label">add english post</div>
+		<table width="70%" class="table tbl-post" border="0">
+			
+			<tbody>
+
+				<tr>
+					<td align="right">Title</td>
+					<td><input class="form-control" value="{{en.title}}" type="text"  id="title-en"></td>
+				</tr>
+				<tr>
+					<td align="right">Description</td>
+					<td><textarea id="editor1" name="editor1" class="form-control">
+						{{en.description}}
+					</textarea></td>
+					<script type="text/javascript">
+						CKEDITOR.replace( 'editor1' );
+
+					</script>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="block-en">
+		<div class="lang-label">add khmer post</div>
+		<table width="70%" class="table tbl-post" border="0">
+			
+			<tbody>
+				<tr>
+					<td align="right">Title</td>
+					<td><input class="form-control" value="{{kh.title}}" type="text" name="title" id="title-kh"></td>
+				</tr>
+				<tr>
+					<td align="right">Description</td>
+					<td><textarea id="editor2" name="editor2" class="form-control">
+						{{kh.description}}
+					</textarea></td>
+					<script type="text/javascript">
+						CKEDITOR.replace( 'editor2' );
+					</script>
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
+	<div class="block-en">
+		<div class="lang-label">add china post</div>
+		<table width="70%" class="table tbl-post" border="0">
+			
+			<tbody>
+				<tr>
+					<td align="right">Title</td>
+					<td><input class="form-control" value="{{ch.title}}" type="text" name="title" id="title-ch"></td>
+				</tr>
+				<tr>
+					<td align="right">Description</td>
+					<td>
+						<textarea id="editor3" name="editor3" class="form-control">
+							{{ch.description}}
+
+						</textarea>
+						<script type="text/javascript">
+							CKEDITOR.replace( 'editor3' );
+						</script>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" bgcolor="#ab3029" height="5" style="padding: 0"></td>
+				</tr>
+				<tr>
+					<td align="right">Category</td>
+					<td>
+						<select id="category" class="form-control">
+							{{#with getCategoryById category}}
+							<option style="display: none;" value="{{_id}}">{{title}}</option>
+							{{/with}}
+							<option value="0">====Select Category=====</option>
+							{{#each getCategories}}
+							<option value="{{_id}}">{{{title}}}</option>
+							{{/each}}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">Location</td>
+					<td>
+						<select id="location" class="form-control">
+							<option style="display:none;" value="{{location}}">{{location}}</option>
+							<option value="">===Please Select Location===</option>
+							<option value="product">products</option>
+							<option value="news">news & event</option>
+							<option value="service">service</option>
+						</select>
+					</td>
+				</tr>
+				{{#if checkForEdit _id}}
+				<tr>
+					<td align="right">Date Created</td>
+					<td>
+						<div class="input-group datetimepicker">
+						    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+						    <input class="set-due-date form-control" value="" id="date_created" type="text"/>
+						</div>
+					</td>
+
+				</tr>
+				{{/if}}
+				<tr>
+					<td align="right">Prduct Code</td>
+					<td>
+						<input type="text" value="{{code}}" id="code" name="cod" class="form-control"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">Images</td>
+					<td>
+						<input type="file" name="file" id="file">
+						<div class="img-multi">
+							{{#each ListImgUpload images}}
+							<div class="wrapp-tool-img">
+								<img class="img-display" src="/uploads/{{getImg this}}"/>
+								<div class="icon-over">
+									
+									<a href="#" id="img-delete" data-id="{{../_id}}" img-id="{{this}}">
+										<i class="fa fa-trash-o" aria-hidden="true"></i>
+									</a>
+								</div>
+							</div>
+							{{/each}}
+							
+
+						</div>
+					</td>
+
+				</tr>
+				
+				
+				
+			</tbody>
+		</table>
+	</div>
+	<div class="panel-add">
+		<input type="submit" href="#" id="post_add" value="SAVE"/>
+	</div>
+	</form>
+</template>

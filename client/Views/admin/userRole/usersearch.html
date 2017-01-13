@@ -1,0 +1,247 @@
+<template name="usersearch">
+	<style type="text/css">
+		@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+		/****** LOGIN MODAL ******/
+		.loginmodal-container {
+			padding: 30px;
+			max-width: 350px;
+			width: 100% !important;
+			background-color: #F7F7F7;
+			margin: 0 auto;
+			border-radius: 2px;
+			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+			overflow: hidden;
+			font-family: roboto;
+		}
+
+		.loginmodal-container h1 {
+			text-align: center;
+			font-size: 1.8em;
+			font-family: roboto;
+		}
+
+		.loginmodal-container input[type=submit] {
+			width: 100%;
+			display: block;
+			margin-bottom: 10px;
+			position: relative;
+		}
+
+		.loginmodal-container input[type=text], input[type=password] {
+			height: 44px;
+			font-size: 16px;
+			width: 100%;
+			margin-bottom: 10px;
+			-webkit-appearance: none;
+			background: #fff;
+			border: 1px solid #d9d9d9;
+			border-top: 1px solid #c0c0c0;
+			/* border-radius: 2px; */
+			padding: 0 8px;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+		}
+
+		.loginmodal-container input[type=text]:hover, input[type=password]:hover {
+			border: 1px solid #b9b9b9;
+			border-top: 1px solid #a0a0a0;
+			-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+			-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+			box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+		}
+
+		.loginmodal {
+			text-align: center;
+			font-size: 14px;
+			font-family: 'Arial', sans-serif;
+			font-weight: 700;
+			height: 36px;
+			padding: 0 8px;
+			/* border-radius: 3px; */
+/* -webkit-user-select: none;
+user-select: none; */
+}
+
+.loginmodal-submit {
+	/* border: 1px solid #3079ed; */
+	border: 0px;
+	color: #fff;
+	text-shadow: 0 1px rgba(0,0,0,0.1); 
+	background-color: #4d90fe;
+	padding: 17px 0px;
+	font-family: roboto;
+	font-size: 14px;
+	/* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+}
+
+.loginmodal-submit:hover {
+	/* border: 1px solid #2f5bb7; */
+	border: 0px;
+	text-shadow: 0 1px rgba(0,0,0,0.3);
+	background-color: #357ae8;
+	/* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+}
+
+.loginmodal-container a {
+	text-decoration: none;
+	color: #666;
+	font-weight: 400;
+	text-align: center;
+	display: inline-block;
+	opacity: 0.6;
+	transition: opacity ease 0.5s;
+} 
+
+.login-help{
+	font-size: 12px;
+}
+
+mark {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        color: black;
+        font-weight: bold;
+    }
+</style>
+<div id="wrapper">
+	<div id="page-wrapper">
+		<div class="container-fluid">
+			<!-- Page Heading -->
+			<div class="row">
+				
+				<div class="col-lg-12">
+					<h1 class="page-header">
+						Manage User Roles
+					</h1>
+					<ol class="breadcrumb">
+						<li class="active">
+							<i class="fa fa-dashboard"></i> Dashboard
+						</li>
+						<li class="active">User Role</li>
+					</ol>
+				</div>
+
+				<div class="col-xs-12 col-md-12">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover table-striped">
+							<thead>
+								<tr>
+									<th>No</th>
+									<th class="text-center" >Username</th>
+									<th class="text-center" >First Name</th>
+									<th class="text-center" >Last Name</th>
+									<th class="text-center" >Emails</th>
+									<th class="text-center" >Role of  user</th>
+									<th class="text-center" style="width:10%" colspan="2">Tools</th>
+								</tr>
+							</thead>
+							<tbody>
+								{{#each getUsers}}
+								<tr>
+									<td>{{numList @index}}</td>
+									<td>{{profile.username}}</td>
+									<td>{{profile.firstname}}</td>
+									<td>{{profile.lastname}}</td>
+									{{#each emails}}
+									<td>{{address}}</td>
+									{{/each}}
+									<td>{{ getRoles roles}}</td>
+									<td><a class="glyphicon glyphicon-trash center-block" href="" id="remove"></a></td>
+									<td><a data-toggle="modal" data-target="#login-modal" class="glyphicon glyphicon-edit center-block myedit" href="#"></a></td>
+								</tr>
+								{{/each}}
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- Start Pagination -->
+				<div class="wrapp-pagination" id="mypagination" style="">
+					<ul class="pagination pagination-pager">
+						<li><a id="first_admin" href="/users/page/1">First</a></li>
+						{{#each totalPage}}
+						<li><a href="#" id="number" class="page_number{{this}}">{{this}}</a></li>
+						{{/each}}
+						{{#if showLastPage}}
+						<li > <a id="spacetotal">...</a>  </li>
+						<li id="page_total"  class=" pagination-pager-page " >
+							<a href="#" id="number" >{{totalPages}}</a>
+						</li>
+						{{/if}}
+						<div class="pagination-pager-buttons">
+							{{#if showPrev}}
+							<button id="prev"> <i class="fa fa-angle-left" aria-hidden="true"></i> </button>
+							{{/if}}
+							{{#if showNext}}
+							<button id="next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </button>
+							{{/if}}
+						</div>
+					</ul>
+				</div>
+				<script type="text/javascript">
+					$(document).ready(function() {
+						var page = Session.get('items.list.page');
+						$('ul.pagination li a.page_number'+page).addClass('active');
+						if(Session.get('items.list.page') <= 1){
+							$('#first_admin').addClass('pagehide');
+						}
+
+					})
+				</script>
+				<!-- end pagination -->
+			</div>
+		</div>
+		<!-- /.container-fluid -->
+
+	</div>
+	<!-- /#page-wrapper -->
+
+	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog">
+			<div class="loginmodal-container">
+				<h1>Udate Users</h1><br>
+				<form>
+					<table>
+						<tr>
+							<td>Firs Name:</td>
+							<td>
+								<input type="hidden" id="user_id">
+								<input type="text" name="fname" id="fname" placeholder="Firs Name">
+							</td>
+						</tr>
+						<tr>
+							<td>Last Name:</td>
+							<td>
+								<input type="text" name="lname" id="lname" placeholder="Last Name">
+							</td>
+						</tr>
+						<tr>
+							<td>Username:</td>
+							<td>
+								<input type="text" name="username" id="username" placeholder="Username">
+							</td>
+						</tr>
+						<tr>
+							<td>Email:</td>
+							<td>
+								<input type="text" name="email" id="email" placeholder="email">
+							</td>
+						</tr>
+					</table>
+					
+					<input type="submit" data-dismiss="modal" id="edit" name="login" class="login loginmodal-submit" value="Save">
+				</form>
+
+				<!-- <div class="login-help">
+					<a href="#">Register</a> - <a href="#">Forgot Password</a>
+				</div> -->
+			</div>
+		</div>
+	</div>
+
+</div>
+<script type="text/javascript">
+	
+</script>
+<!-- /#wrapper -->
+
+</template>

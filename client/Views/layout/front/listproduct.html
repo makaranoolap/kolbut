@@ -1,0 +1,70 @@
+<template name="listproduct">
+	<div class="wrapper-listproduct">
+		{{#if checkImg banner}}
+		<section class="row">
+			<div class="banner">
+				<img class="img-responsive" src="/uploads/{{getImg banner}}" alt='banner'>
+			</div>
+		</section>
+		{{/if}}
+		<section class="breadscom">
+			<ul>
+				<li><a href="/listproduct.html">Product</a></li>
+				{{#each getCateToBreadscom}}
+				{{#with getSliderBylanguage this}}
+				<li style="color:#af0e05;">/</li>
+				<li><span>{{title}}</span></li>
+				{{/with}}
+				{{/each}}
+			</ul>
+		</section>
+		<section class="row">
+			{{#each listPost}}
+			<article class="col-md-3 col-tumbnail" style="padding:10px;">
+				<div class="wrap-img">
+					<a class="link" href="/details/{{_id}}.html">
+					{{#with getFirstImg images}}
+					<img class="img-responsive"  src="/uploads/{{getImg image}}" alt="Our Product"/>
+					{{/with}}
+					</a>
+					{{#with getPostByLanguage this}}
+					<h3 class="text-center">{{title}}</h3>
+					{{/with}}
+					<a href="#" class="view-more">view more</a>
+				</div>
+			</article>
+			{{/each}}
+		</section>
+		<!-- Start Pagination -->
+		<div class="wrapp-pagination pagination-front" id="mypagination" style="">
+			<ul class="pagination pagination-pager text-center">
+				{{{ totalPage}}}
+				{{#if showLastPage}}
+				<li id="spacetotal">... </li>
+				<li id="page_total"  class=" pagination-pager-page " >
+					<a href="#" id="number" >{{totalPages}}</a>
+				</li>
+				{{/if}}
+				<div class="pagination-pager-buttons">
+					{{#if showPrev}}
+					<button id="prev"> <i class="fa fa-angle-left" aria-hidden="true"></i> </button>
+					{{/if}}
+					{{#if showNext}}
+					<button id="next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </button>
+					{{/if}}
+				</div>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var page = Session.get('items.list.page');
+				$('ul.pagination li .page_number'+page).addClass('active');
+				if(Session.get('items.list.page') <= 1){
+					$('#first_admin').addClass('pagehide');
+				}
+
+			})
+		</script>
+		<!-- end pagination -->
+	</div>
+</template>

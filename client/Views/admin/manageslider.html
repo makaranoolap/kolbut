@@ -1,0 +1,46 @@
+<template name="manageslider">
+	<div class="row">
+
+		<div class="col-lg-10">
+			<h1 class="page-header">
+				Manage Slider
+			</h1>
+			<ol class="breadcrumb">
+				<li class="active">
+					<i class="fa fa-dashboard"></i> Dashboard
+				</li>
+			</ol>
+		</div>
+
+		<div class="col-xs-12 col-sm-6 col-md-10">
+			<a href="/addslider"><button class="btn btn-primary">Add New</button></a>
+			<br>
+			<br>
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover table-striped">
+					<thead>
+						<tr>
+							<th class="text-center" style="width:60%">Title</th>
+							<th class="text-center" style="width:15%">Images</th>
+							<th class="text-center" style="width: 15%"></th>
+							<th class="text-center" style="width:10%" colspan="2">Tools</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each getSlider}}
+						<tr>
+							{{#with getSliderBylanguage this}}
+							<td>{{{title}}}</td>
+							{{/with}}
+							<td><img src="/uploads/{{getImg images}}" width="100" /></td>
+							<td>{{lacation}}</td>
+							<td><a class="glyphicon glyphicon-trash center-block" href="" id="remove-slider"></a></td>
+							<td><a class="glyphicon glyphicon-edit center-block" href="editslider/{{_id}}"></a></td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</template>

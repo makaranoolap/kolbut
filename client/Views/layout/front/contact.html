@@ -1,0 +1,90 @@
+<template name="contact">
+	<section class="row space-top-contact">
+		<div class="round-shadow col-md-12" id="map" style="width:100%;height:400px"></div>
+	</section>
+	<section class="row space-top-contact">
+		<article class="col-md-6">
+			<div class="round-shadow">
+				<form>
+					<div class="form-group space_control">
+					<label class="control-label col-sm-3 text-right label-form" for="title">Your Name <span style="color:red">*</span></label>
+						<div class="col-sm-9">
+							<input type="text" value="" name="title" id="name" class="form-control input-md" placeholder="Username"  >
+						</div>
+					</div>
+					<div class="form-group space_control">
+						<label class="control-label col-sm-3 text-right label-form" for="title">Your Email <span style="color:red">*</span></label>
+						<div class="col-sm-9">
+							<input type="email" value="" name="title" id="email" class="form-control input-md" placeholder="Email"  >
+						</div>
+					</div>
+					<div class="form-group space_control">
+						<label class="control-label col-sm-3 text-right label-form" for="title">Subject <span style="color:red">*</span></label>
+						<div class="col-sm-9">
+							<input type="text" value="" name="title" id="subject" class="form-control input-md" placeholder="Subject"  >
+						</div>
+					</div>
+					<div class="form-group space_control">
+						<label class="control-label col-sm-3 text-right" for="title">Message <span style="color:red">*</span></label>
+						<div class="col-sm-9">
+							<textarea class="form-control" id="message"></textarea>
+						</div>
+					</div>
+					<div class="col-md-12 text-center send-email space_control">
+						<a href="#" id="send-email">SEND</a>
+					</div>
+
+				</form>
+			</div>
+		</article>
+		<article class="col-md-6 address-contact">
+			<div class="round-shadow">
+				<div class="row">
+					<div class="col-md-2 no-padding">
+						<p class="text-address-p"><b>Office :</b></p>
+					</div>
+					<div class="col-md-10 no-padding">
+						<p > #72B Eo, St. 111, Sangkat Boeng Pralet, Khan 7 Makara, Phnom Penh</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 no-padding">
+						<p class="text-address-p"><b>Factory :</b></p>
+					</div>
+					<div class="col-md-10 no-padding">
+						<p> #18, St. 85 BT, Chamroeun Phal Village, Khan Meanchey, Phnom Penh</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 no-padding">
+						<p class="text-address-p"><b><i class="fa fa-phone " aria-hidden="true"></i> :</b></p>
+					</div>
+					<div class="col-md-10 no-padding">
+						<p> +855 17 57 67 98 / 16 67 97 98</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 no-padding">
+						<p class="text-address-p"><b><i class="fa fa-envelope-o " aria-hidden="true"></i> :</b></p>
+					</div>
+					<div class="col-md-10 no-padding">
+						<p> Kbk01.yarath@kollbothkhmer.com</p>
+					</div>
+				</div>
+				
+			</div>
+		</article>
+	</section>
+	<script>
+		function myMap() {
+			var myCenter = new google.maps.LatLng(11.5350364,104.9042858);
+			var mapCanvas = document.getElementById("map");
+			var mapOptions = {center: myCenter, zoom: 17};
+			var map = new google.maps.Map(mapCanvas, mapOptions);
+			var marker = new google.maps.Marker({position:myCenter});
+			marker.setMap(map);
+		}
+	</script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+</template>

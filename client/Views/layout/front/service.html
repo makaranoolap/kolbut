@@ -1,0 +1,26 @@
+<template name="service">
+	<div class="container">
+		<section class="row">
+			{{#each getService}}
+			<article class="col-md-12 service-thumbnail" style="padding:10px;">
+				{{#with getPostByLanguage this}}
+				<h3 class="text-center">{{title}}</h3>
+				{{/with}}
+				<div class="img-service no-padding col-md-6 {{getPullRight @index}}">
+					{{#with getFirstImg images}}
+					<img class="img-responsive"  src="/uploads/{{getImg image}}" alt="Our Product"/>
+					{{/with}}
+				</div>
+				<div class="col-md-6">
+				<p>
+					{{#with getPostByLanguage this}}
+					{{{description}}}
+					{{/with}}
+				</p>
+
+				</div>
+			</article>
+			{{/each}}
+		</section>
+	</div>
+</template>

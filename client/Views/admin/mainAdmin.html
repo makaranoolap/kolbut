@@ -1,0 +1,67 @@
+<template name="mainAdmin">
+	<div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Kolbut Khmer Admin</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav ">
+                <li class="dropdown">
+                    <a href="#" lang="kh" class="lang">KH</a>
+                
+                </li>
+                <li class="dropdown"><a href="#" lang="en" class="lang" >EN</a></li>
+                <li class="dropdown"><a href="#" lang="ch" class="lang" >CH</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{#with currentUser}}{{profile.username}}{{/with}} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        {{#if currentUser}}
+                        <li>
+                            <a href="#" id="logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                        {{/if}}
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/managepost"><i class="fa fa-clipboard fa-2x "></i> Post</a>
+                    </li>
+                    <li>
+                        <a href="/managecategory"><i class="fa fa-2x fa-list-alt" aria-hidden="true"></i> Category</a>
+                    </li>
+                    <li>
+                        <a href="/manageslider"><i class="fa fa-2x fa-sliders" aria-hidden="true"></i> Slider</a>
+                    </li>
+                    <li>
+                        <a href="/manageRole"><i class="fa fa-user fa-2x"></i> Users</a>
+                    </li>
+                </ul>   
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+            {{> yield}}
+            </div>
+
+        </div>
+
+    </div>
+</template>

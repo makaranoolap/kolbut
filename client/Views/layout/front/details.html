@@ -1,0 +1,67 @@
+<template name="details">
+	<div class="container">
+				<section class="row" style="margin-top: 20px;">
+					<article class="col-md-12 col-tumbnail-detail" style="padding:10px;">
+						<div class="col-md-5 img-detail no-padding">
+							{{#with getFirstImg images}}
+							<img class="img-responsive"  src="/uploads/{{getImg image}}" alt="Our Product"/>
+							{{/with}}
+							<div class="gallery-list row" style="padding-top: 10px;">
+								{{#each images}}
+								<img class="img-responsive col-md-3 col-sm-3 col-xs-3 no-padding"  src="/uploads/{{getImg this}}" alt="Our Product"/>
+								{{/each}}
+							</div>
+						</div>
+						<div class="col-md-7 block-article">
+							<div class="row">
+								<label class="col-md-3 col-sm-3 col-xs-12 no-padding">Product Name :</label>
+								<p class="col-md-9 col-sm-9 col-xs-12 no-padding title">
+									{{#with getPostByLanguage this}}
+									{{title}}
+									{{/with}}
+								</p>
+							</div>
+							<div class="row">
+								<label class="col-md-3 col-sm-3 col-xs-12 no-padding">Product Code :</label>
+								<p class="col-md-9 col-sm-9 col-xs-12 no-padding ">{{code}}</p>
+							</div>
+							<div class="row">
+								<label class="col-md-3 col-sm-3 col-xs-12 no-padding">Category :</label>
+								<p class="col-md-9 col-sm-9 col-xs-9 no-padding">{{category}}</p>
+							</div>
+							<div class="row">
+								<label class="col-md-3 col-sm-3 col-xs-12 no-padding">Date Post :</label>
+								<p class="col-md-9 col-sm-9 col-xs-12 no-padding ">12/03/2017</p>
+							</div>
+							<div class="row">
+								<label class="col-md-3 col-sm-3 col-xs-12 no-padding">Description :</label>
+								<p class="col-md-9 col-sm-12 no-padding description">
+									{{#with getPostByLanguage this}}
+									{{{description}}}
+									{{/with}}
+								</p>
+							</div>
+						
+
+						</div>
+					</article>
+				</section>
+				<section class="row related">
+					<article class="col-md-12 col-tumbnail-detail" style="padding:10px;">
+						<h3 class="text-related">Related</h3>
+						{{#each getRelated category _id}}
+						<div class="col-md-3 col-tumbnail" style="padding:10px;">
+							<div class="wrap-img">
+								{{#with getFirstImg images}}
+								<a href="/details/{{../_id}}.html">
+									<img class="img-responsive"  src="/uploads/{{getImg image}}" alt="Our Product"/>
+								</a>
+								{{/with}}
+								<h3 class="text-center">{{#with getPostByLanguage this}} {{title}} {{/with}}</h3>
+							</div>
+						</div>
+						{{/each}}
+					</article>
+				</section>
+			</div>
+</template>

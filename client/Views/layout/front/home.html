@@ -1,0 +1,63 @@
+<template name="home">
+	<div sclass=" slider col-md-12 wrapper">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				{{#each getSlider}}
+				<li data-target="#myCarousel" data-slide-to="{{@index}}" class="{{activeClass @index}}"></li>
+				{{/each}}
+			</ol>
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+				{{#each getSlider}}
+				<div class="item {{activeClass @index}}">
+					<img src="/uploads/{{getImg images}}" alt="Chania" >
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+	<section class="list-home wrapper">
+		<article class="col-md-4 col-tumbnail" style="padding:10px;">
+				<div class="wrap-img">
+					<a href="/listproduct.html">
+					<img class="img-responsive"  src="images/our_product.jpg" alt="Our Product"/>
+					<h3 class="text-center">{{_"Product"}}</h3>
+					</a>
+					<a href="/listproduct.html" class="view-more">view more</a>
+				</div>
+		</article>
+		<article class="col-md-4 col-tumbnail" style="padding:10px;">
+				<div class="wrap-img">
+					<a href="/project">
+					<img class="img-responsive"  src="images/project.jpg" alt="Our Projects"/>
+					<h3 class="text-center">{{_"Project"}}</h3>
+					</a>
+					<a href="/project" class="view-more">view more</a>
+				</div>
+		</article>
+		<article class="col-md-4 col-tumbnail" style="padding:10px;">
+				<div class="wrap-img">
+					<a href="/service">
+					<img class="img-responsive"  src="images/our_service.jpg" alt="Our Service"/>
+					<h3 class="text-center">{{_"Service"}}</h3>
+					</a>
+					<a href="/service" class="view-more">view more</a>
+				</div>
+		</article>
+		
+	</section>
+	<section class="row">
+		<div class="col-md-12" style="padding-left: 30px;" align="center">
+		<article class="col-md-6 col-tumbnail news-home" style="padding:10px;">
+				<div class="wrap-img">
+					<a href="newsEvent">
+					<img class="img-responsive"  src="images/news.jpg" alt="Our Service"/>
+					<h3 class="text-center">{{_"News"}}</h3>
+					</a>
+					<a href="/newsEvent" class="view-more">view more</a>
+				</div>
+		</article>
+		</div>
+	</section>
+</template>
