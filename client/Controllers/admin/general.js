@@ -308,6 +308,22 @@ findParent = function(child){
     }
     
 }
+mapParentId = function(child){
+    var ids = [];
+    ids.push(child);
+    var cate = categories.findOne({_id:child});
+    if(cate){
+        var parent = cate.parent;
+        ids.push(parent);
+         
+    } 
+    var newids = [];
+    for(var i=ids.length ;i >= 0;i--){
+        newids.push(ids[i]);
+    }
+    return newids;
+
+}
 mapChildId = function(parentId){
     var attrId = [];
     attrId.push(parentId);

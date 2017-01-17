@@ -116,7 +116,54 @@ mapChildId = function(parentId){
     
     return attrId;
 }
+findParent = function(child){
+    var cate = categories.findOne({_id:child});
+    if(cate){
+        var parent = cate.parent;
+        if(parent =='0'){
+            return cate._id;
+        }else{
+            return findParent(parent);
+        }  
+    }
+    
+}
+getUnique =function(count,arrayNum) {
+  // Make a copy of the array
+  var tmp = arrayNum.slice(arrayNum);
+  var ret = [];
+  
+  for (var i = 0; i < count; i++) {
+    var index = Math.floor(Math.random() * tmp.length);
+    var removed = tmp.splice(index, 1);
+    // Since we are only removing one element
+    ret.push(removed[0]);
+  }
+  return ret;  
+}
 //=====end gobal function server===
+Meteor.publish('details',function(id){
+    var new_array = [];
+    var p = post.findOne({_id:id});
+    if(p){ 
+        var parent = findParent(p.category);
+        var arrayId = mapChildId(parent);
+        console.log('Helo='+arrayId);
+        var posts = post.find({category:{$in:arrayId}});
+        var arrayRandom = [];
+        posts.forEach(function(v){
+            if(v._id !== id){
+                arrayRandom.push(v._id);
+            }   
+        });
+        new_array = getUnique(4,arrayRandom);
+        new_array.push(p._id);
+        var result = post.find({_id:{$in:new_array}});
+        console.log('DATA=='+result.count());
+        return result;
+    }
+    
+})
 
 Meteor.publish('userPageList',function(options){
     var user = listUserByPage(options);

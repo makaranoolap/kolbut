@@ -1,6 +1,7 @@
 Session.set('img_post','');
 Template.addpost.events({
 	'click #post_add':function(e){
+		alert();
 		e.preventDefault();
 		var title_en = $('#title-en').val();
 		var description_en = CKEDITOR.instances.editor1.getData();
@@ -12,7 +13,9 @@ Template.addpost.events({
 		var location = $('#location').val();
 		var code = $('#code').val();
 		var date_created = convertTimestamp($('#date_created').val());
-		alert(date_created);
+		if(this._id){
+			date_created = this.date_created;
+		}
 		var arrayIdImg = convertStringToArray(Session.get('img_post'),':');
 		var images = getIdImgPost(this._id,arrayIdImg);
 		if(title_en && description_en && title_kh && description_kh && title_ch && description_ch && category && location && code){

@@ -84,10 +84,22 @@ Template.listproduct.helpers({
     getCateToBreadscom:function(){
         var id = Session.get('categoryId');
         var lang = Session.get('language');
-        var childId = mapChildId(id);
-        childId.push(id);
+        var childId = mapParentId(id);
         var result = categories.find({_id:{$in:childId}});
-        return result;
+        var html ='';
+        if(result.count() > 0){
+            result.forEach(function(v,index){
+                if(index == 0){
+                    html+='<li style="color:#af0e05;">/</li>';
+                    html+='<li><a href="/listproduct/category/'+v._id+'.html">'+v.en.title+'</a></li>'  
+                }else{
+                    html+='<li style="color:#af0e05;">/</li>';
+                    html+='<li><span>'+v.en.title+'</span></li>'
+                }
+                
+            })
+        }
+        return html;
     }
     //====end pagination ======
 	

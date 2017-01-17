@@ -29,6 +29,12 @@ Template.header.events({
         Session.set('keyword',keyword);
         Session.set('items.list.page',1);
     },
+    'click #btn-search':function(e){
+        e.preventDefault();
+        var keyword = $('#search').val();
+        Router.go('/search/'+keyword);
+        $('.search-dropdown').addClass('pagehide');
+    },
     'mouseup #text_search':function(e){
     	e.preventDefault();
     	$(e.currentTarget).val('');

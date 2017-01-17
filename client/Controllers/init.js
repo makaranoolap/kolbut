@@ -61,8 +61,7 @@ Template.managepost.onCreated(function(){
 // })
 Template.details.onCreated(function(){
     Tracker.autorun(function(){
-        Meteor.subscribe('categories',Session.get('language'))
-        
+        Meteor.subscribe('categories',Session.get('language')) 
     }) 
 })
 Template.service.onCreated(function(){
