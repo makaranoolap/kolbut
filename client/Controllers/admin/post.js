@@ -12,6 +12,7 @@ Template.addpost.events({
 		var category = $('#category').val();
 		var location = $('#location').val();
 		var code = $('#code').val();
+		var order =$('#order').val();
 		var date_created = convertTimestamp($('#date_created').val());
 		if(this._id){
 			date_created = this.date_created;
@@ -36,6 +37,7 @@ Template.addpost.events({
 					category:category,
 					location:location,
 					code:code,
+					order:Number(order),
 					date_created:date_created
 					
 				}

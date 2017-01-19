@@ -109,7 +109,7 @@ Template.listproduct.events({
     'click #number':function(e){
         e.preventDefault();
         var num=Number($(e.currentTarget).text());
-        var selector='.page_number'+num;b
+        var selector='.page_number'+num;
         $(selector).addClass('active');
         $(selector).parent().prevAll('li').children('a').removeClass('active');
         $(selector).parent().nextAll('li').children('a').removeClass('active');

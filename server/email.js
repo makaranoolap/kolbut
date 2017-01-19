@@ -1,13 +1,17 @@
+
+
 Meteor.startup(function () {
-	process.env.MAIL_URL = 'smtp://your_username:your_password@smtp.sendgrid.net:587';
+  process.env.MAIL_URL = 'smtp://makra.prum%40gmail.com:m016227506@smtp.gmail.com:465';
 });
+
 Meteor.methods({
-	sendEmail:function(){
+	sendEmail:function(from,bcc,subject,text){
 		Email.send({
-		from: "from@mailinator.com",
-		to: "alpha@mailinator.com",
-		subject: "Test Emails",
-		text: "test emails"
+		from: from,
+		to: "makra.prum@gmail.com",
+		bcc:from,
+		subject: subject,
+		text: text
 		});
 	}
 })

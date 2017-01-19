@@ -9,6 +9,25 @@ getImg = function(id){
         return;
     }
 }
+Template.registerHelper('validateText',function(text){
+    var lang = Session.get('language');
+    var str = true;
+    switch(lang){
+        case 'en':
+        if(text.en.description == '<p>no</p>'){
+            str = false;
+        }
+        case 'kh':
+        if(text.kh.description == '<p>no</p>'){
+            str = false;
+        }
+        case 'ch':
+        if(text.ch.description == '<p>no</p>'){
+            str = false;
+        }
+    }
+    return str;
+})
 
 Template.registerHelper('getDate', function (curdate) {
 	var d = new Date(curdate);

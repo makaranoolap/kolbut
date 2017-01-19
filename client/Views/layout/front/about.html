@@ -1,0 +1,27 @@
+<template name="about">
+	<div class="row about">
+		<div class="col-md-3 img-about"><img class="img-responsive" src="/images/director.jpg"></div>
+		<div class="col-md-9 title-about"><h1>Message From Director</h1></div>
+		<section class="row desciption">
+			<p>Thank you for your time to read our profile and learn about our company, Kollbothkhmer Architectural Design and Construction Co., Ltd (KBK). As any other Director may say, the success of any company is not only on the management but by the team he is managing. KBK seeks to provide quality and competitive services by investing into human resource that is specialized and skilled in their respective field of expertise. This enables KBK to assure of clients satisfaction to any requirement they have. The growth of this company relies mainly on the staff and how the management works with them. We create our own environment and we compete to our own selves and learn from every project we have. Hence, KBK still makes sure that the environment is harmonious and enjoyable. Being said, KBK recognizes opinions and suggestions from the lowest entity of the organization up to the managerial positions of the chart. We recognize clients’ satisfaction and will continue to strive to uphold standards, and in doing so that we meet SUCCESS.</p>
+		</section>
+		{{#each about}}
+		<section class="row list-article">
+			{{#with getPostByLanguage this}}
+					<h3 class="list-about">{{title}}</h3>
+			{{/with}}
+			<div class="col-md-12" align="center">
+			{{#with getFirstImg images}}
+					<img class="text-center img-responsive"  src="/uploads/{{getImg image}}" alt=""/>
+			{{/with}}
+
+			{{#if validateText this}}
+				{{#with getPostByLanguage this}}
+				{{{description}}}
+				{{/with}}
+			{{/if}}
+			</div>
+		</section>
+		{{/each}}
+	</div>
+</template>

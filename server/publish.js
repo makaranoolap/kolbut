@@ -23,6 +23,9 @@ listPostByPage = function(options,lang){
     
     return post.find({},opt);
 }
+Meteor.publish('about',function(){
+    return post.find({location:'about'});
+})
 
 Meteor.publish('listProductByPageFront',function(page){
     return listProductByPageFront(page);
