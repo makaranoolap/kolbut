@@ -1,0 +1,26 @@
+<template name="servicedetails">
+	<div class="row">
+		{{#each result}}
+			<article class="col-md-12 service-thumbnail" style="padding:10px;">
+				{{#with getPostByLanguage this}}
+				<a href="/service-details/{{title}}">
+					<h3 class="text-center">{{title}}</h3>
+				</a>
+				{{/with}}
+				<div class="img-service no-padding col-md-6 {{getPullRight @index}}">
+					{{#each images}}
+					<img class="img-responsive img-service-details"  src="/uploads/{{getImg this}}" alt="Our Product"/>
+					{{/each}}
+				</div>
+				<div class="col-md-6">
+				<p>
+					{{#with getPostByLanguage this}}
+					{{{description}}}
+					{{/with}}
+				</p>
+
+				</div>
+			</article>
+			{{/each}}
+	</div>
+</template>

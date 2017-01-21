@@ -4,11 +4,16 @@
 			{{#each getService}}
 			<article class="col-md-12 service-thumbnail" style="padding:10px;">
 				{{#with getPostByLanguage this}}
-				<h3 class="text-center">{{title}}</h3>
+				<a href="/service-details/{{title}}">
+					<h3 class="text-center">{{title}}</h3>
+				</a>
 				{{/with}}
 				<div class="img-service no-padding col-md-6 {{getPullRight @index}}">
 					{{#with getFirstImg images}}
 					<img class="img-responsive"  src="/uploads/{{getImg image}}" alt="Our Product"/>
+					{{/with}}
+					{{#with getPostByLanguage this}}
+					<a class="link-details" href="/service-details/{{title}}"></a>
 					{{/with}}
 				</div>
 				<div class="col-md-6">

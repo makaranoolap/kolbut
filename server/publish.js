@@ -145,6 +145,18 @@ getUnique =function(count,arrayNum) {
   return ret;  
 }
 //=====end gobal function server===
+Meteor.publish('servicedetais',function(slug,lang){
+    var result ='';
+    switch(lang){
+        case 'en':
+            result = post.find({'en.title':slug});
+        case 'kh':
+            result = post.find({'kh.title':slug});
+        case 'ch':
+            result = post.find({'ch.title':slug});
+    }
+    return result;
+})
 Meteor.publish('details',function(id){
     var new_array = [];
     var p = post.findOne({_id:id});

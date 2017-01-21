@@ -1,7 +1,6 @@
 Session.set('img_post','');
 Template.addpost.events({
 	'click #post_add':function(e){
-		alert();
 		e.preventDefault();
 		var title_en = $('#title-en').val();
 		var description_en = CKEDITOR.instances.editor1.getData();
