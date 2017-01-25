@@ -2,7 +2,7 @@ Meteor.startup(function () {
   if (Meteor.users.find().fetch().length === 0) {
     var users = [
         {name:"admin",email:"admin@gmail.com",roles:['admin']},
-        {name:"member",email:"member@gmail.com",roles:['member']}
+        {name:"kollbothkhmer",email:"kollbothkhmer@kollbothkhmer.com",roles:['admin']}
       ];
 
     _.each(users, function (user) {
@@ -10,7 +10,7 @@ Meteor.startup(function () {
 
       id = Accounts.createUser({
         email: user.email,
-        password: "123",
+        password: "679798DY",
         profile: { name: user.name }
       });
 
