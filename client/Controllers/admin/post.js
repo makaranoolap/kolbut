@@ -12,17 +12,19 @@ Template.addpost.events({
 		var location = $('#location').val();
 		var code = $('#code').val();
 		var order =$('#order').val();
+		var link = $('#link').val();
 		var date_created = convertTimestamp($('#date_created').val());
 		if(this._id){
 			date_created = this.date_created;
 		}
 		var arrayIdImg = convertStringToArray(Session.get('img_post'),':');
 		var images = getIdImgPost(this._id,arrayIdImg);
-		if(title_en && description_en && title_kh && description_kh && title_ch && description_ch && category && location && code){
+		if(title_en && description_en && title_kh && description_kh && title_ch && description_ch && location){
 			var obj={
 					en:{
 						title:title_en,
 						description:description_en,
+						
 					},
 					kh:{
 						title:title_kh,
@@ -37,6 +39,7 @@ Template.addpost.events({
 					location:location,
 					code:code,
 					order:Number(order),
+					link:link,
 					date_created:date_created
 					
 				}
@@ -147,6 +150,18 @@ Template.addpost.events({
 				}
 			
 			});
+		}
+	},
+	'change #location':function(e){
+		var location = $(e.currentTarget).val();
+		$('#block-code').hide();
+		if(location == 'home'){
+			$('#block-link').show();
+		}else{
+			$('#block-link').hide();
+		}
+		if(location == 'product'){
+			$('#block-code').show();
 		}
 	}
 	

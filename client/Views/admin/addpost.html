@@ -89,6 +89,7 @@
 						<select id="location" class="form-control">
 							<option style="display:none;" value="{{location}}">{{location}}</option>
 							<option value="">===Please Select Location===</option>
+							<option value="home">home</option>
 							<option value="product">products</option>
 							<option value="news">news & event</option>
 							<option value="service">service</option>
@@ -108,10 +109,16 @@
 
 				</tr>
 				{{/if}}
-				<tr>
+				<tr id="block-code">
 					<td align="right">Prduct Code</td>
 					<td>
-						<input type="text" value="{{code}}" id="code" name="cod" class="form-control"/>
+						<input type="text" value="{{code}}" id="code" name="code" class="form-control"/>
+					</td>
+				</tr>
+				<tr id="block-link">
+					<td align="right">link</td>
+					<td>
+						<input type="text" value="{{link}}" id="link" name="order" class="form-control"/>
 					</td>
 				</tr>
 				<tr>

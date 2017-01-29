@@ -18,62 +18,29 @@
 		</div>
 	</div>
 	<section class="list-home">
+		{{#each home}}
 		<article class="col-md-3 col-tumbnail">
 				<div class="wrap-img">
-					<a href="/listproduct.html">
-					<h3 class="text-center">{{_"Product"}}</h3>
+					<a href="/{{link}}">
+					{{#with getPostByLanguage this}}
+					<h3 class="text-center">{{title}}</h3>
+					{{/with}}
+
+					{{#if is4img images}}
 						<div class="img-4 col-md-12 no-padding">
-							<div class="img-4-th img-th1"><img src="/images/home-4.jpg"/></div>
-							<div class="img-4-th"><img src="/images/home-4.jpg"/></div>
-							<div class="img-4-th"><img src="/images/home-4.jpg"/></div>
-							<div class="img-4-th"><img src="/images/home-4.jpg"/></div>
+							{{#each images}}
+							<div class="img-4-th"><img src="/uploads/{{getImg this}}"/></div>
+							{{/each}}
 						</div>
+					{{else}}
+						{{#with getFirstImg images}}
+						<img class="text-center"  src="/uploads/{{getImg image}}" alt=""/>
+						{{/with}}
+					{{/if}}
+					
 					</a>
 				</div>
 		</article>
-		<article class="col-md-3 col-tumbnail" >
-				<div class="wrap-img">
-					<a href="/project">
-					<h3 class="text-center">{{_"About Us"}}</h3>
-					<div class="img-4 col-md-12 no-padding">
-						<img src="/images/about.jpg"/>
-						<!-- <div class="img-4-th"><img src="/images/home-4.jpg"/></div>
-						<div class="img-4-th"><img src="/images/home-4.jpg"/></div>
-						<div class="img-4-th"><img src="/images/home-4.jpg"/></div>
-						<div class="img-4-th"><img src="/images/home-4.jpg"/></div> -->
-					</div>
-					</a>
-				</div>
-		</article>
-		<article class="col-md-3 col-tumbnail">
-				<div class="wrap-img">
-					<a href="/project">
-					<h3 class="text-center">{{_"Project"}}</h3>
-					<img class="img-responsive"  src="images/project.jpg" alt="Our Projects"/>
-					</a>
-				</div>
-		</article>
-		<article class="col-md-3 col-tumbnail">
-				<div class="wrap-img">
-					<a href="/service">
-					<h3 class="text-center">{{_"Service"}}</h3>
-					<img class="img-responsive"  src="images/our_service.jpg" alt="Our Service"/>
-					</a>
-				</div>
-		</article>
-		
+		{{/each}}
 	</section>
-	<!-- <section class="row">
-		<div class="col-md-12" style="padding-left: 30px;" align="center">
-		<article class="col-md-6 col-tumbnail news-home">
-				<div class="wrap-img">
-					<a href="newsEvent">
-					<img class="img-responsive"  src="images/news.jpg" alt="Our Service"/>
-					<h3 class="text-center">{{_"News"}}</h3>
-					</a>
-					<a href="/newsEvent" class="view-more">view more</a>
-				</div>
-		</article>
-		</div>
-	</section> -->
 </template>

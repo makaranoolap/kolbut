@@ -417,3 +417,26 @@ slugUrl = function(title){
 Template.registerHelper('slugUrl',function(title){
     return slugUrl(title);
 })
+
+Template.registerHelper('is4img',function(img){
+    console.log('MyLength=='+img.length);
+    if(img.length == 4){
+        console.log('true');
+        return true;
+    }else{
+        console.log('false');
+        return false;
+    }
+})
+Template.mainLayout.onRendered(function(){
+   Tracker.autorun(function(){
+    var language = Session.get('language');
+        if(language == 'kh'){
+            $('.container-fluid').css('font-family','khmer UI');
+            $('.text-header').css('font-size','24px');
+        }else{
+            $('.container-fluid').css('font-family','"PT Sans Narrow", "Arial Narrow", Arial, Helvetica, sans-serif');
+            $('.text-header').css('font-size','17px');
+        }
+    }) 
+})

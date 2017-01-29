@@ -8,7 +8,7 @@ Meteor.methods({
 	sendEmail:function(from,bcc,subject,text){
 		Email.send({
 		from: from,
-		to: "makra.prum@gmail.com",
+		to: "Kbk01.yarath@kollbothkhmer.com",
 		bcc:from,
 		subject: subject,
 		text: text
