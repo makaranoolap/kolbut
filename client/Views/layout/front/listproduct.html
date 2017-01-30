@@ -15,17 +15,17 @@
 		</section>
 		<section class="row">
 			{{#each listPost}}
-			<article class="col-md-3 col-tumbnail" style="padding:10px;">
+			<article class="col-md-3 col-tumbnail">
 				<div class="wrap-img">
 					<a class="link" href="/details/{{_id}}.html">
+					{{#with getPostByLanguage this}}
+					<h3 class="text-center">{{title}}</h3>
+					{{/with}}
 					{{#with getFirstImg images}}
 					<img class="img-responsive"  src="/uploads/{{getImg image}}" alt="Our Product"/>
 					{{/with}}
 					</a>
-					{{#with getPostByLanguage this}}
-					<h3 class="text-center">{{title}}</h3>
-					{{/with}}
-					<a href="#" class="view-more">view more</a>
+					<a href="#" class="view-more">{{code}}</a>
 				</div>
 			</article>
 			{{/each}}

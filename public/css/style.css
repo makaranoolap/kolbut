@@ -642,7 +642,7 @@ table td a{
 
 }
 .wrapper-listproduct{
-    padding: 0 20px;
+    padding: 0;
 }
 .wrap-img .link{
     height: 170px;
@@ -664,8 +664,13 @@ table td a{
     color: #fff;
     text-shadow: 1px 1px 1px rgba(150, 150, 150, 0.7);
     display: block;
-    line-height: 1.5;
+    line-height: 1.2;
+    height: 60px;
+    margin:0px;
     
+}
+.list-home .wrap-img h3{
+    height: 40px;
 }
 .text-header{
     font-size: 17px;
@@ -698,7 +703,10 @@ table td a{
     -webkit-box-shadow: 0px 0px 3px 2px rgba(119, 119, 119, 0.53);
 }
 .col-tumbnail{
-    padding:0 10px 0 0;
+    padding:0 10px 10px 0;
+}
+.col-tumbnail:nth-child(4n+0){
+    padding-right: 0;
 }
 .col-tumbnail .wrap-img{
     height: 345px;
@@ -818,7 +826,7 @@ table td a{
     padding: 7px;
     color:white;
     display: block;
-    background: #c3322a;
+    background: #9d160f;
     width:80px;
     text-align:center;
     margin:0 auto;
@@ -1026,8 +1034,7 @@ box-shadow: 4px 4px 12px -6px rgba(0,0,0,0.75);
     background: red;
 }
 .breadscom{
-    padding-right: 7px;
-    padding-left: 7px;
+    padding: 0;
 }
 .breadscom ul{
     height: 40px;
