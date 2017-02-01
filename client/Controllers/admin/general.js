@@ -30,7 +30,7 @@ Template.registerHelper('validateText',function(text){
 })
 
 Template.registerHelper('getDate', function (curdate) {
-	var d = new Date(curdate);
+	var d = new Date(curdate * 1000);
 	var str=d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
     return str;
 });

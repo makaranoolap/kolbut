@@ -14,9 +14,6 @@ Template.addpost.events({
 		var order =$('#order').val();
 		var link = $('#link').val();
 		var date_created = convertTimestamp($('#date_created').val());
-		if(this._id){
-			date_created = this.date_created;
-		}
 		var arrayIdImg = convertStringToArray(Session.get('img_post'),':');
 		var images = getIdImgPost(this._id,arrayIdImg);
 		if(title_en && description_en && title_kh && description_kh && title_ch && description_ch && location){
@@ -189,8 +186,13 @@ Template.addpost.helpers({
     }
 })
 Template.addpost.onRendered(function() {
+	var date_update = new Date();
+	if(Session.get('date_update')){
+		date_update = Session.get('date_update');
+	}
     this.$('.datetimepicker').datetimepicker({
-    	format: 'DD/MM/YYYY'
+    	format: 'DD/MM/YYYY',
+    	date: new Date(date_update)
     });
 });
 Template.managepost.helpers({

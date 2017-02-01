@@ -945,6 +945,20 @@ table td a{
     height: 200px;
     width: 100%;
 }
+.partner{padding: 0;}
+.partner li{
+    display: inline-block;
+    list-style: none;
+    vertical-align: middle;
+    padding: 15px 10px 30px 10px;
+
+}
+.partner li a{
+    display: block;
+}
+.partner li a img{
+    display: block;
+}
 .space-top-contact{
     margin-top:15px;
 }
