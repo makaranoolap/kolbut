@@ -4,11 +4,11 @@ Template.addpost.events({
 		e.preventDefault();
 		var description_en = '',description_kh = '', description_ch = '';
 		var title_en = $('#title-en').val();
-		//description_en = CKEDITOR.instances.editor1.getData();
+		description_en = CKEDITOR.instances.editor1.getData();
 		var title_kh = $('#title-kh').val();
-		//description_kh = CKEDITOR.instances.editor2.getData();
+		description_kh = CKEDITOR.instances.editor2.getData();
 		var title_ch = $('#title-ch').val();
-		//description_ch = CKEDITOR.instances.editor3.getData();
+		description_ch = CKEDITOR.instances.editor3.getData();
 		var category = $('#category').val();
 		var location = $('#location').val();
 		var code = $('#code').val();
