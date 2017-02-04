@@ -73,9 +73,11 @@
 					<td align="right">Category</td>
 					<td>
 						<select id="category" class="form-control">
-							{{#with getCategoryById category}}
-							<option style="display: none;" value="{{_id}}">{{title}}</option>
-							{{/with}}
+							{{#if checkImg _id}}
+								{{#with getCategoryById category}}
+								<option style="display: none;" value="{{_id}}">{{title}}</option>
+								{{/with}}
+							{{/if}}
 							<option value="0">====Select Category=====</option>
 							{{#each getCategories}}
 							<option value="{{_id}}">{{{title}}}</option>
@@ -87,13 +89,17 @@
 					<td align="right">Location</td>
 					<td>
 						<select id="location" class="form-control">
+							{{#if checkImg _id}}
 							<option style="display:none;" value="{{location}}">{{location}}</option>
+							{{/if}}
 							<option value="">===Please Select Location===</option>
 							<option value="home">home</option>
-							<option value="product">products</option>
-							<option value="news">news & event</option>
-							<option value="service">service</option>
-							<option value="about">about</option>
+							<option value="product">Products</option>
+							<option value="news">News & Event</option>
+							<option value="service">Service</option>
+							<option value="about">About</option>
+							<option value="partner">Partner</option>
+							<option value="project">Project</option>
 						</select>
 					</td>
 				</tr>

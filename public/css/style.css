@@ -148,13 +148,14 @@
 }
 .kol-nav .navbar-inverse .navbar-nav > li > a {
     color: #fff;
-    font-family: 'gothambold';
+    font-family: 'gothambook'!important;
     font-size: 16px;
     font-weight: normal;
 }
 .kol-nav .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
     color: #fff;
     background-color: #812e22;
+    font-family: 'gothambook',sans-serif;
 }
 table.tbl-post > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
     border: none;
@@ -444,10 +445,12 @@ table td a{
     margin-bottom: 10px;
     padding: 20px 15px 0 15px;
     overflow: hidden;
+    border-radius: 5px;
+    border-top: 4px solid #d9534f;
 
 }
 .social{
-    width: 300px;
+    width: 200px;
     height: 37px;
     display: block;
     text-align: center;
@@ -528,9 +531,8 @@ table td a{
     ctext-decoration: none;
     text-transform: uppercase;
     color: white;
-    font-family: "PT Sans Narrow", "Arial Narrow", Arial, Helvetica, sans-serif;
+    font-family: 'gothambook';
     font-size: 14px;
-    font-weight: bold;
     line-height: 23px;
     text-decoration: none;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
@@ -570,9 +572,8 @@ table td a{
   font-weight: normal;
   line-height: 1.428571429;
   color: white;
-  font-family: "PT Sans Narrow", "Arial Narrow", Arial, Helvetica, sans-serif;
+  font-family: 'gothambook',sans-serif;
   font-size: 14px;
-  font-weight: bold;
   text-decoration: none;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
   white-space: normal;
@@ -581,9 +582,7 @@ table td a{
 .megamenu> li ul > li > a:focus {
   text-decoration: none;
   color: white;
-  font-family: "PT Sans Narrow", "Arial Narrow", Arial, Helvetica, sans-serif;
   font-size: 14px;
-  font-weight: bold;
   text-decoration: none;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
@@ -677,6 +676,7 @@ table td a{
     color: #c3322a;
     text-shadow: 1px 1px 1px rgba(150, 150, 150, 0.7);
     display: block;
+    font-family: 'gothambook'
 }
 .wrap-img a{
     text-decoration: none;
@@ -780,6 +780,7 @@ table td a{
     float: left;
     vertical-align: top;
     padding-left: 320px;
+    font-family: 'gothambook',sans-serif;
 
 }
 .social{
@@ -963,7 +964,7 @@ table td a{
     margin-top:15px;
 }
 .address-contact .round-shadow{
-    padding: 25px 0px;
+    padding: 25px 0px ;
 }
 .address-contact p{
     font-size: 16px;
@@ -993,6 +994,9 @@ table td a{
     border-left: 1px solid #ddd;
     
 }
+.navbar{
+    border-radius: 5px;
+}
 
 /*====block footer====*/
 .text-footer{
@@ -1000,6 +1004,7 @@ table td a{
     display: block;
     vertical-align: middle;
     font-size: 14px;
+    font-family: 'gothambook'
 }
 .search-dropdown{
     width:auto;
@@ -1127,7 +1132,7 @@ box-shadow: 4px 4px 12px -6px rgba(0,0,0,0.75);
 
 @media (min-width: 768px){
 	.navbar {
-     border-radius: 0px;
+     border-radius: 5px;
  }
 
 }

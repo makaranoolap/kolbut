@@ -1,18 +1,14 @@
 <template name="partner">
 	<section class="row ">
-		<h3 class="h3-partner">Partner</h3>
+		{{#with getPostByLanguage this}}
+		<h3 class="h3-partner">{{title}}</h3>
+		{{/with}}
 		<div class="round-shadow" style="margin-top: 20px;">
 		<article class="col-md-12" style="margin-bottom: 20px;">
 			<ul class="partner">
-				<li><a href="#"><img width="200" src="images/giant.jpg"/></a></li>
-				<li><a href="#"><img width="200" src="images/kol-caffe.jpg"/></a></li>
-				<li><a href="#"><img width="200" src="images/lucky-burger.jpg"/></a></li>
-				<li><a href="#"><img width="200" src="images/combi.jpg"/></a></li>
-				<li><a href="#"><img width="200" src="images/Anakku.jpg"/></a></li>
-				<li><a href="#"><img width="200" src="images/lucky-supermarket.jpg"/></a></li>
-				<li><a href="#"><img width="200" src="images/orkidey-villa.jpg"/></a></li>
-				<li><a href="#"><img width="200" src="images/toys-me.jpg"/></a></li>
-				<li><a href="#"><img width="200" src="images/school-fruit-print.jpg"/></a></li>
+			{{#each images}}
+				<li><a href="#"><img width="200" src="/uploads/{{getImg this}}"/></a></li>
+			{{/each}}
 			</ul>
 			
 		</article>

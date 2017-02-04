@@ -11,7 +11,12 @@ listUserByPage = function(options,lang){
     return Meteor.users.find({},opt); 
 }
 
-listPostByPage = function(options,lang){
+listPostByPage = function(options,page){
+    var query ={};
+    if(page){
+       var query = {location:page}; 
+    }
+    
    var opt = {
         limit: 10
     };
@@ -21,7 +26,7 @@ listPostByPage = function(options,lang){
         }
     }
     
-    return post.find({},opt);
+    return post.find(query,opt);
 }
 Meteor.publish('pages',function(location){
     return post.find({location:location});
@@ -185,8 +190,8 @@ Meteor.publish('userPageList',function(options){
     return user;
     
 })
-Meteor.publish('PostPageList',function(options,lang){
-    var posts = listPostByPage(options,lang);
+Meteor.publish('PostPageList',function(options,page){
+    var posts = listPostByPage(options,page);
     return posts;
     
 })
