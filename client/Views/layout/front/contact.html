@@ -1,6 +1,9 @@
 <template name="contact">
 	<section class="row space-top-contact">
-		<div class="round-shadow col-md-12" id="map" style="width:100%;height:400px"></div>
+		<div class="round-shadow col-md-12" id="map" style="width:100%;height:400px">
+			{{> googleMap name="exampleMap" options=exampleMapOptions}}
+
+		</div>
 	</section>
 	<section class="row space-top-contact">
 		<article class="col-md-6 no-padding">
@@ -75,33 +78,4 @@
 			</div>
 		</article>
 	</section>
-	<!-- <script>
-		function myMap() {
-			var myCenter = new google.maps.LatLng(11.5350364,104.9042858);
-			var mapCanvas = document.getElementById("map");
-			var mapOptions = {center: myCenter, zoom: 17};
-			var map = new google.maps.Map(mapCanvas, mapOptions);
-			var marker = new google.maps.Marker({position:myCenter});
-			marker.setMap(map);
-		}
-	</script>
-
-	<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
- -->
-	<script>
-      function initMap() {
-        var uluru = {lat: 11.5350364, lng: 104.9042858};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 17,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQwCIwpSI8dloOHvKCJYRTmghDiQ9u8pU&callback=initMap">
-    </script>
 </template>
