@@ -1,0 +1,24 @@
+(function(){var _ = Package.underscore._,
+    package_name = "project",
+    namespace = "project";
+
+if (package_name != "project") {
+    namespace = TAPi18n.packages[package_name].namespace;
+}
+TAPi18n.languages_names["ch"] = ["ch","ch"];
+TAPi18n._enable({"helper_name":"_","supported_languages":null,"i18n_files_route":"/tap-i18n","preloaded_langs":[],"cdn_path":null});
+TAPi18n.languages_names["en"] = ["English","English"];
+if(_.isUndefined(TAPi18n.translations["ch"])) {
+  TAPi18n.translations["ch"] = {};
+}
+
+if(_.isUndefined(TAPi18n.translations["ch"][namespace])) {
+  TAPi18n.translations["ch"][namespace] = {};
+}
+
+_.extend(TAPi18n.translations["ch"][namespace], {"Home":"首页","Service":"服务","About Us":"关于我们","Project":"项目","Partner":"伙伴","Product":"产品展示","Contact Us":"联系我们","News":"行业资讯","header-title":"KOLLBOTH KHMER ARCHITECTURAL DESIGN & CONSTRUCTION CO., LTD."});
+TAPi18n._registerServerTranslator("ch", namespace);
+
+}).call(this);
+
+//# sourceMappingURL=ch.i18n.json.map

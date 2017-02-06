@@ -1,0 +1,22 @@
+(function(){var _ = Package.underscore._,
+    package_name = "project",
+    namespace = "project";
+
+if (package_name != "project") {
+    namespace = TAPi18n.packages[package_name].namespace;
+}
+TAPi18n.languages_names["kh"] = ["kh","kh"];
+if(_.isUndefined(TAPi18n.translations["kh"])) {
+  TAPi18n.translations["kh"] = {};
+}
+
+if(_.isUndefined(TAPi18n.translations["kh"][namespace])) {
+  TAPi18n.translations["kh"][namespace] = {};
+}
+
+_.extend(TAPi18n.translations["kh"][namespace], {"Home":"ទំព័រដេីម","Service":"សេវាកម្ម","About Us":"ជីវប្រវត្តក្រុមហ៊ុន","Project":"គំរោង","Partner":"ដៃគូរសហការ","Product":"ផលិតផល","Contact Us":"ផ្នែកទំនាក់ទំនង","News":"ពត៏មាន","header-title":"ក្រុមហ៊ុនកុលបុត្រខ្មែរ អាឃីធេកឆឺរ័ល ឌីហ្សាញ​ & ខនស្រ្កាក់សិន"});
+TAPi18n._registerServerTranslator("kh", namespace);
+
+}).call(this);
+
+//# sourceMappingURL=kh.i18n.json.map

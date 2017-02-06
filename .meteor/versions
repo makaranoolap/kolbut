@@ -91,7 +91,6 @@ mrt:bootstrap-3@0.3.8
 mrt:fs@0.1.5
 msavin:mongol@1.6.2
 npm-bcrypt@0.7.8_2
-npm-container@1.2.0
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7
 ordered-dict@1.0.4

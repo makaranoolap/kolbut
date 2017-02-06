@@ -1,0 +1,16 @@
+(function(){var _ = Package.underscore._,
+    package_name = "project",
+    namespace = "project";
+
+if (package_name != "project") {
+    namespace = TAPi18n.packages[package_name].namespace;
+}
+// integrate the fallback language translations 
+translations = {};
+translations[namespace] = {"hello":"Hey there","Home":"Home","Service":"Service","About Us":"About Us","Project":"Project","Partner":"Partner","Product":"Product","Contact Us":"Contact Us","News":"News","header-title":"KOLLBOTH KHMER ARCHITECTURAL DESIGN & CONSTRUCTION CO., LTD."};
+TAPi18n._loadLangFileObject("en", translations);
+TAPi18n._registerServerTranslator("en", namespace);
+
+}).call(this);
+
+//# sourceMappingURL=en.i18n.json.map

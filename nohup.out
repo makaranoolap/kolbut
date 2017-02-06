@@ -1,0 +1,28 @@
+linux path:/home/chearta/kolbut
+linux path:/home/chearta/kolbut
+linux path:/home/chearta/kolbut
+linux path:/home/chearta/kolbut
+
+events.js:72
+        throw er; // Unhandled 'error' event
+              ^
+Error: listen EACCES
+    at errnoException (net.js:905:11)
+    at Server._listen2 (net.js:1024:19)
+    at listen (net.js:1065:10)
+    at net.js:1147:9
+    at dns.js:72:18
+    at process._tickCallback (node.js:448:13)
+linux path:/home/chearta/kolbut
+Helo=
+DATA==1
+Helo=WkPT3zFgZjrccMJEX,SmB8oXQ3Tt9gvB2YC,cwKt5GgSvx7tQJvuf,gSAwR9FZP9dZqQvcm
+DATA==5
+Helo=WkPT3zFgZjrccMJEX,SmB8oXQ3Tt9gvB2YC,cwKt5GgSvx7tQJvuf,gSAwR9FZP9dZqQvcm
+DATA==5
+Helo=WkPT3zFgZjrccMJEX,SmB8oXQ3Tt9gvB2YC,cwKt5GgSvx7tQJvuf,gSAwR9FZP9dZqQvcm
+DATA==5
+Helo=WkPT3zFgZjrccMJEX,SmB8oXQ3Tt9gvB2YC,cwKt5GgSvx7tQJvuf,gSAwR9FZP9dZqQvcm
+DATA==5
+linux path:/home/chearta/kolbut
+linux path:/home/chearta/kolbut
