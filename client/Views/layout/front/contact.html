@@ -75,7 +75,7 @@
 			</div>
 		</article>
 	</section>
-	<script>
+	<!-- <script>
 		function myMap() {
 			var myCenter = new google.maps.LatLng(11.5350364,104.9042858);
 			var mapCanvas = document.getElementById("map");
@@ -87,4 +87,21 @@
 	</script>
 
 	<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+ -->
+	<script>
+      function initMap() {
+        var uluru = {lat: 11.5350364, lng: 104.9042858};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 17,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQwCIwpSI8dloOHvKCJYRTmghDiQ9u8pU&callback=initMap">
+    </script>
 </template>
