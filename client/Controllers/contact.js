@@ -34,7 +34,7 @@ function isValidEmailAddress(emailAddress) {
 
 if (Meteor.isClient) {
   Meteor.startup(function() {
-    GoogleMaps.load();
+    GoogleMaps.load({key:"AIzaSyAKro-So2c-Oe71a0AQh0IJ1H7V3ow8tQc"});
   });
 }
 

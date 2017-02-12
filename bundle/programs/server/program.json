@@ -384,6 +384,10 @@
       "path": "packages/tsega_bootstrap3-datetimepicker.js"
     },
     {
+      "sourceMap": "packages/dburles_google-maps.js.map",
+      "path": "packages/dburles_google-maps.js"
+    },
+    {
       "sourceMap": "packages/hot-code-push.js.map",
       "path": "packages/hot-code-push.js"
     },
